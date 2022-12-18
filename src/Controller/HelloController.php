@@ -13,7 +13,7 @@ class HelloController extends AbstractController
         ['message' => 'Bye!', 'created' => '2022/11/28']
     ];
 
-    #[Route('/{limit?3}', name: 'app_index')]
+    #[Route('/{limit<\d+>?3}', name: 'app_index')]
     public function index(int $limit): Response
     {
         return $this->render(
