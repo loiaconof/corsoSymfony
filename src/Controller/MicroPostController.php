@@ -45,6 +45,9 @@ class MicroPostController extends AbstractController
             $post = $form->getData();
             $post->setCreated(new DateTime());
             $posts->save($post, true);
+
+            $this->addFlash('success', 'Your micro post has been added');
+            return $this->redirectToRoute('app_micro_post');
         }
 
         return $this->renderForm(
