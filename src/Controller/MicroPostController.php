@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\MicroPost;
 use App\Repository\MicroPostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,5 +16,11 @@ class MicroPostController extends AbstractController
         return $this->render('micro_post/index.html.twig', [
             'controller_name' => 'MicroPostController',
         ]);
+    }
+
+    #[Route('/micro/post/{post}', name: 'app_micro_post_show')]
+    public function showOne(MicroPost $post): Response
+    {
+        dd($post);
     }
 }
